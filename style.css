@@ -72,7 +72,7 @@ body {
 }
 .form-input {
   background-color: #fff;
-  height: 395px;
+  height: 450px;
   max-width: 470px;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@ body {
 .btn {
   padding: 16px;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: 0.2px solid hsla(246, 25%, 77%, 0.3);
 }
 .form-input .fname,
@@ -106,6 +106,7 @@ input:hover {
   background-color: var(--green);
   border: none;
   cursor: pointer;
+  /* margin-bottom: 15px; */
   /* box-shadow: 0 10px 10px -10px #000000; */
 }
 .form-input .btn:hover {
@@ -124,4 +125,11 @@ input:hover {
 .terms {
   color: var(--red);
   font-weight: bold;
+}
+
+small {
+  padding: 0;
+  margin: 0px 2px 15px 0;
+  text-align: end;
+  color: var(--red);
 }
