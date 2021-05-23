@@ -7,31 +7,67 @@ const btn = document.querySelector(".btn");
 
 formInput.addEventListener("submit", e => {
   e.preventDefault();
-  console.log("form  Input");
+
   validateInput();
 });
-
 function validateInput() {
-  const firstNameValue = firstName.value.trim();
-  const lastNameValue = lastName.value.trim();
-  const passwordValue = password.value.trim();
-  const emailValue = email.value.trim();
-
-  if (firstNameValue === "") {
-    return setError(firstName, "First name cannot be empty");
+  if (firstName.value === "") {
+    // seterror
+    setError(firstName, "Firstname cannot be empty");
   } else {
-    return setSucess(firstName);
+    // setsuccess
+    setSuccess(firstName);
+  }
+  if (lastName.value === "") {
+    // seterror
+    setError(lastName, "Lastname cannot be empty");
+  } else {
+    // setsuccess
+    setSuccess(lastName);
+  }
+
+  if (email.value === "") {
+    // seterror
+    setError(email, "Email cannot be empty");
+  } else if (!validateEmail(email.value)) {
+    setError(email, "Email format is wrong");
+  } else {
+    // setsuccess
+    setSuccess(email);
+  }
+
+  if (password.value === "") {
+    // seterror
+    setError(password, "Password cannot be empty");
+  } else if (validatePassword(password.value)) {
+    setError(password, "Not a valid password");
+  } else {
+    // setsuccess
+    setSuccess(password);
   }
 }
 
 function setError(input, message) {
-  const small = document.querySelector("small");
-  small.className = small;
-  input.style.border = "2px solid red";
-  // small.style.color = "red";
+  console.log(input);
+  const form = input.parentElement;
+  form.className = "form-control error";
+  const small = form.querySelector("small");
+
   small.innerText = message;
 }
-function setSucess(input) {
-  input.style.border = "2px solid green";
-  input.value = "";
+
+function setSuccess(input) {
+  const form = input.parentElement;
+  form.className = "form-control success";
+}
+
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+function validatePassword(password) {
+  const passw = /^[A-Za-z]\w{7,14}$/;
+  if (password === passw) {
+    console.log("true");
+  }
 }
