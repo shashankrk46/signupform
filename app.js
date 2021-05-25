@@ -30,7 +30,7 @@ function validateInput() {
     // seterror
     setError(email, "Email cannot be empty");
   } else if (!validateEmail(email.value)) {
-    setError(email, "Email format is wrong");
+    setError(email, "Looks like this is not an email");
   } else {
     // setsuccess
     setSuccess(email);
@@ -40,7 +40,10 @@ function validateInput() {
     // seterror
     setError(password, "Password cannot be empty");
   } else if (!validatePassword(password.value)) {
-    setError(password, "Not a valid password");
+    setError(
+      password,
+      "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
+    );
   } else {
     // setsuccess
     setSuccess(password);
