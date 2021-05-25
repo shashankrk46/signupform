@@ -39,7 +39,7 @@ function validateInput() {
   if (password.value === "") {
     // seterror
     setError(password, "Password cannot be empty");
-  } else if (validatePassword(password.value)) {
+  } else if (!validatePassword(password.value)) {
     setError(password, "Not a valid password");
   } else {
     // setsuccess
@@ -48,7 +48,6 @@ function validateInput() {
 }
 
 function setError(input, message) {
-  console.log(input);
   const form = input.parentElement;
   form.className = "form-control error";
   const small = form.querySelector("small");
@@ -66,8 +65,7 @@ function validateEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 function validatePassword(password) {
-  const passw = /^[A-Za-z]\w{7,14}$/;
-  if (password === passw) {
-    console.log("true");
-  }
+  const passw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+  return passw.test(password);
 }

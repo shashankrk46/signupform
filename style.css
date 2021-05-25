@@ -151,3 +151,30 @@ input:hover {
 .form-control.form-control.error small {
   visibility: visible;
 }
+
+.error-icon {
+  visibility: hidden;
+  width: 20px;
+  position: absolute;
+  top: 14px;
+
+  bottom: 0;
+  right: 0;
+  margin-right: 15px;
+  text-align: center;
+}
+.error-icon {
+  visibility: hidden;
+  width: 20px;
+  position: absolute;
+  top: 14px;
+
+  bottom: 0;
+  right: 0;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.form-control.form-control.error .error-icon {
+  visibility: visible;
+}
