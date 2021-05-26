@@ -218,4 +218,7 @@ input:hover {
   .btn {
     margin-bottom: 5px;
   }
+  footer {
+    display: none;
+  }
 }
